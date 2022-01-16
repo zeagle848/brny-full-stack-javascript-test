@@ -40,7 +40,15 @@ searchTextInput.addEventListener("keypress", (e) => {
   }
 });
 
-topHeadlinesBtn.addEventListener("click", () => {
+topHeadlinesBtn.addEventListener("click", showTopHeadlines);
+
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+}
+
+function showTopHeadlines() {
   removeAllChildNodes(articleContainer);
 
   let url =
@@ -65,12 +73,7 @@ topHeadlinesBtn.addEventListener("click", () => {
           currentArticle.publishedAt
         );
       }
-      console.log(response.articles);
     });
-});
-
-function removeAllChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
 }
+
+showTopHeadlines();
