@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;500;700&display=swap");
+
+:root {
+  --main-primary-color: rgb(187, 216, 240);
+  --main-lighter-primary-color: rgb(211, 234, 253);
+  --main-darker-primary-color: rgb(171, 202, 230);
+  --main-darkest-primary-color: rgb(132, 165, 194);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--main-primary-color);
+  height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  border-bottom: solid 2px black;
+}
+
+/* SEARCH BAR STYLING */
+
+.search-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  margin-bottom: 40px;
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  flex: 0 1 auto;
+}
+
+.or-span {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+}
+
+.top-headlines-button {
+  width: 220px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Josefin Sans", sans-serif;
+  background-color: var(--main-darkest-primary-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.top-headlines-button:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 2px 5px 1px grey;
+}
+
+.search-box {
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: none;
+  padding: 10px;
+  width: 220px;
+  height: 30px;
+}
+
+.search-box:focus {
+  border: none;
+  outline: none;
+}
+
+/* STYLING FOR DISPLAYING ARTICLE CARDS */
+
+.article-cards-container {
+  width: 800px;
+  height: 700px;
+  border-left: solid 2px black;
+  border-right: solid 2px black;
+  overflow: auto;
+  z-index: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.article-cards-container::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.article-card {
+  background-color: var(--main-lighter-primary-color);
+  border-radius: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header header-image"
+    "description description description . ."
+    "author author author . date-published";
+  border: 2px solid black;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.article-card:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 2px 5px 1px grey;
+}
+
+.article-title {
+  font-weight: 500;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  grid-area: header;
+  margin: 0;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-left: 10px;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
+.article-card-image {
+  object-fit: cover;
+  width: 150px;
+  height: 140px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  grid-area: header-image;
+}
+
+.article-card-description {
+  grid-area: description;
+  margin: 20px;
+  font-weight: 200;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+}
+
+.article-card-author {
+  grid-area: author;
+  font-weight: 500;
+  font-family: "Josefin Sans", sans-serif;
+  padding-left: 20px;
+}
+
+.article-card-date-published {
+  grid-area: date-published;
+  font-weight: 200;
+  font-family: "Josefin Sans", sans-serif;
+  padding-left: 70px;
+}
+
+/* FOOTER STYLING */
+
+.footer {
+  margin-left: 1400px;
+  color: #000;
+  text-align: right;
+  height: 2.5rem;
+  bottom: 0;
+  position: absolute;
+}
+
+.footer-content {
+  font-weight: 200;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.footer-content > a {
+  color: black;
+}

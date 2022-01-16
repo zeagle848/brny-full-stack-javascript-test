@@ -1,0 +1,28 @@
+{
+  "name": "brny-full-stack-javascript-test",
+  "version": "1.0.0",
+  "description": "News-API web test application for BNRY",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zeagle848/brny-full-stack-javascript-test.git"
+  },
+  "author": "William Carpenter-Frank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zeagle848/brny-full-stack-javascript-test/issues"
+  },
+  "homepage": "https://github.com/zeagle848/brny-full-stack-javascript-test#readme",
+  "devDependencies": {
+    "css-loader": "^6.5.1",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.3"
+  }
+}
