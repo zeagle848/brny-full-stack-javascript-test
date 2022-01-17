@@ -10,33 +10,37 @@ searchTextInput.addEventListener("keypress", (e) => {
     removeAllChildNodes(articleContainer);
     let searchQuery = searchTextInput.value;
 
-    for (let i = 0; i < searchQuery.length; i++) {
-      searchQuery = searchQuery.replace(" ", "+");
+    searchQuery = searchQuery.trim();
+
+    if (searchQuery !== " " || searchQuery != false) {
+      for (let i = 0; i < searchQuery.length; i++) {
+        searchQuery = searchQuery.replace(" ", "+");
+      }
+
+      let url =
+        "https://newsapi.org/v2/everything?" +
+        `q=${searchQuery}&` +
+        `apiKey=d3f6e8d0d03449b2b689c73f9c368402`;
+
+      let req = new Request(url);
+
+      fetch(req)
+        .then((a) => a.json())
+        .then((response) => {
+          for (let i = 0; i < response.articles.length; i++) {
+            let currentArticle = response.articles[i];
+            createArticleCard(
+              currentArticle.author,
+              currentArticle.title,
+              currentArticle.description,
+              currentArticle.url,
+              currentArticle.urlToImage,
+              currentArticle.publishedAt
+            );
+          }
+          console.log(response.articles);
+        });
     }
-
-    let url =
-      "https://newsapi.org/v2/everything?" +
-      `q=${searchQuery}&` +
-      `apiKey=d3f6e8d0d03449b2b689c73f9c368402`;
-
-    let req = new Request(url);
-
-    fetch(req)
-      .then((a) => a.json())
-      .then((response) => {
-        for (let i = 0; i < response.articles.length; i++) {
-          let currentArticle = response.articles[i];
-          createArticleCard(
-            currentArticle.author,
-            currentArticle.title,
-            currentArticle.description,
-            currentArticle.url,
-            currentArticle.urlToImage,
-            currentArticle.publishedAt
-          );
-        }
-        console.log(response.articles);
-      });
   }
 });
 
