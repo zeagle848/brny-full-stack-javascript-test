@@ -24,11 +24,14 @@ searchTextInput.addEventListener("keypress", (e) => {
 
       let req = new Request(url);
 
+      let array = [];
+
       fetch(req)
-        .then((a) => a.json())
-        .then((response) => {
-          for (let i = 0; i < response.articles.length; i++) {
-            let currentArticle = response.articles[i];
+        .then((response) => response.json())
+        .then(({ articles }) => {
+          for (let i = 0; i < articles.length; i++) {
+            let currentArticle = articles[i];
+            array.push(articles[i]);
             createArticleCard(
               currentArticle.author,
               currentArticle.title,
@@ -38,7 +41,7 @@ searchTextInput.addEventListener("keypress", (e) => {
               currentArticle.publishedAt
             );
           }
-          console.log(response.articles);
+          console.log(articles);
         });
     }
   }
